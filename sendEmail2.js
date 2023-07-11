@@ -106,4 +106,4 @@ const t = setInterval(() => {
   } else {
     clearInterval(t);
   }
-}, 5000)
+}, 30000)
