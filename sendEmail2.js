@@ -30,10 +30,11 @@ const app = (counter) => {
     } else {
       console.log(`Email sent to ${startList[counter], email} successfully:`, info.response);
     }
-    if (counter < (startList.length - 1)) {
-      app(counter + 1)
-    }
-  });
+  })
+
+  if (counter < (startList.length - 1)) {
+    app(counter + 1)
+  }
 }
 
 
