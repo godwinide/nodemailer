@@ -25,15 +25,13 @@ const app = (counter) => {
 
 
   transporter.sendMail(mailOptions, (error, info) => {
-
-
     if (error) {
       console.error(error);
     } else {
       console.log(`Email sent to ${startList[counter], email} successfully:`, info.response);
     }
     if (counter < (startList.length - 1)) {
-      app(index + 1)
+      app(counter + 1)
     }
   });
 }
