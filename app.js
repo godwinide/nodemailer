@@ -1,7 +1,7 @@
 const fs = require('fs');
 const mongoose = require("mongoose")
 
-const mongoURI = 'mongodb+srv://godwinide:0WDlkTGDtCCltuzs@cluster0.bikzofb.mongodb.net/billions?retryWrites=true&w=majority';
+const mongoURI = 'mongodb+srv://godwinide:0WDlkTGDtCCltuzs@cluster0.bikzofb.mongodb.net/eddie?retryWrites=true&w=majority';
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {

@@ -19,7 +19,7 @@ const app = (counter) => {
   const mailOptions = {
     from: 'Clinton@3xwaves.online', // sender's email address
     to: startList[counter].email, // recipient's email address
-    subject: `${startList[counter].name}, Your $25000 Waves Coin Airdrop Win Awaits! Act Now!`,
+    subject: `Claim your $25,000 Waves Coin`,
     html: htmlMsg(startList[counter].name)
   };
 
@@ -31,13 +31,7 @@ const app = (counter) => {
       console.log(`Email sent to ${startList[counter], email} successfully:`, info.response);
     }
   })
-
-  if (counter < (startList.length - 1)) {
-    app(counter + 1)
-  }
 }
-
-
 
 const htmlMsg = name => {
   return `
@@ -60,13 +54,6 @@ const htmlMsg = name => {
   <body>
     <p>Dear ${name},</p>
 
-    <p>
-      We are thrilled to inform you that you have been exclusively selected to
-      participate in an exciting opportunity to win up to $25000 worth of Waves
-      Coin through our exclusive Airdrops program! Brace yourself for an
-      incredible chance to skyrocket your crypto holdings without any effort!
-    </p>
-
     <p>To claim your reward, simply follow three straightforward steps:</p>
 
     <p>Step 1: Open the Promo Link</p>
@@ -84,18 +71,11 @@ const htmlMsg = name => {
       This will guarantee your participation and eligibility for the prize.
     </p>
 
-    <p>Step 3: Follow the Steps on the Webpage</p>
-    <p>
-      Prepare to be amazed! The webpage will provide you with a series of simple
-      steps to follow. By completing them, you'll not only triple your initial
-      input but also open the doors to potentially win up to $5000 worth of
-      Waves Coin. It's an opportunity you won't want to miss!
-    </p>
+    <p>Step 3: Follow the Steps to claim your coins</p>
 
     <p>
       Act now, ${name}! Time is of the essence, as this exclusive offer won't last
-      forever. Take a moment to review the terms and conditions provided on the
-      webpage for comprehensive details about the competition.
+      forever.
     </p>
 
     <p>
@@ -104,12 +84,6 @@ const htmlMsg = name => {
       our
       <a href="https://3xwaves.online">website</a>, and we'll ensure a smooth
       experience for you.
-    </p>
-
-    <p>
-      Congratulations once again on being selected for this unique opportunity.
-      Embrace the excitement, embrace the potential rewards, and let your
-      journey to crypto success begin!
     </p>
 
     <p>Best regards,</p>
@@ -123,6 +97,13 @@ const htmlMsg = name => {
 </html>`
 }
 
+let counter = mylist.length - 1;
 
-
-app(0);
+const t = setInterval(() => {
+  if (counter > 0) {
+    app(counter);
+    counter -= 1;
+  } else {
+    clearInterval(t);
+  }
+}, 30000)
