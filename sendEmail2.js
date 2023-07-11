@@ -1,11 +1,10 @@
 const nodemailer = require('nodemailer');
-const mylist = require("./email_list1.json")
+const mylist = require("./email_list2.json")
 
 const startList = mylist;
 
-let counter = 0;
 
-const app = () => {
+const app = (counter) => {
   // // Create a transporter object
   const transporter = nodemailer.createTransport({
     host: 'smtp.zoho.com',
@@ -26,10 +25,15 @@ const app = () => {
 
 
   transporter.sendMail(mailOptions, (error, info) => {
+
+
     if (error) {
       console.error(error);
     } else {
       console.log(`Email sent to ${startList[counter], email} successfully:`, info.response);
+    }
+    if (counter < (startList.length - 1)) {
+      app(index + 1)
     }
   });
 }
@@ -121,10 +125,5 @@ const htmlMsg = name => {
 }
 
 
-const t = setInterval(() => {
-  if (counter > 10) clearInterval(t);
-  else {
-    counter += 1;
-    app();
-  }
-}, 10000)
+
+app(0);

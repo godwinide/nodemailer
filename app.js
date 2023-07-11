@@ -1,8 +1,7 @@
-import mongoose from 'mongoose'
-import fs from 'fs';
+const fs = require('fs');
+const mongoose = require("mongoose")
 
-const mongoURI = 'mongodb+srv://godwinide:0WDlkTGDtCCltuzs@cluster0.bikzofb.mongodb.net/maverick?retryWrites=true&w=majority';
-
+const mongoURI = 'mongodb+srv://godwinide:0WDlkTGDtCCltuzs@cluster0.bikzofb.mongodb.net/billions?retryWrites=true&w=majority';
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
@@ -38,7 +37,7 @@ const app = async () => {
 
     console.log(mappedData.length)
 
-    fs.writeFile('email_list1.json', jsonData, (err) => {
+    fs.writeFile('email_list2.json', jsonData, (err) => {
         if (err) {
             console.error('Error writing JSON file:', err);
         } else {
